@@ -1,0 +1,135 @@
+		g3log created log at: Wed Jun 27 08:57:12 2018
+		LOG format: [YYYY/MM/DD hh:mm:ss uuu* LEVEL FILE->FUNCTION:LINE] messagen
+		(uuu*: microseconds fractions of the seconds value)
+
+2018/06/27 08:57:12 899266 INFO/action_manager[ActionManager.cpp->initExecutors:24]: initExecutors
+2018/06/27 08:57:12 899319 INFO/action_manager[ActionManager.cpp->initExecutors:26]: searching script folder ../executors_script
+2018/06/27 08:57:12 900050 INFO/action_manager[ActionManager.cpp->initExecutors:38]: find executor:run from:../executors_script/run.py
+2018/06/27 08:57:12 901758 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'run' has no attribute 'init'"
+
+2018/06/27 08:57:12 901794 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:init not valid
+2018/06/27 08:57:12 901806 INFO/executor[Executor.cpp->callPythonFunction:60]: connot find func name init from Executor:run
+2018/06/27 08:57:12 902039 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'run' has no attribute 'cancel'"
+
+2018/06/27 08:57:12 902059 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:cancel not valid
+2018/06/27 08:57:12 902186 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'run' has no attribute 'reset_cancel'"
+
+2018/06/27 08:57:12 902206 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:reset_cancel not valid
+2018/06/27 08:57:12 902402 INFO/executor[Executor.cpp->init:28]: create Executor run success
+2018/06/27 08:57:12 902767 INFO/action_manager[ActionManager.cpp->initExecutors:38]: find executor:robot from:../executors_script/robot.py
+2018/06/27 08:57:12 912592 INFO/executor[Executor.cpp->thread_run:92]: Executor:run wait for action
+2018/06/27 08:57:12 912631 INFO/executor[Executor.cpp->thread_run:95]: action queue empty
+2018/06/27 08:57:12 925771 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'robot' has no attribute 'cancel'"
+
+2018/06/27 08:57:12 925802 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:cancel not valid
+2018/06/27 08:57:12 925826 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'robot' has no attribute 'reset_cancel'"
+
+2018/06/27 08:57:12 925833 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:reset_cancel not valid
+2018/06/27 08:57:12 925949 INFO/executor[Executor.cpp->init:28]: create Executor robot success
+2018/06/27 08:57:12 926225 INFO/action_manager[ActionManager.cpp->initExecutors:38]: find executor:jump from:../executors_script/jump.py
+2018/06/27 08:57:12 927006 INFO/executor[Executor.cpp->thread_run:92]: Executor:robot wait for action
+2018/06/27 08:57:12 927017 INFO/executor[Executor.cpp->thread_run:95]: action queue empty
+2018/06/27 08:57:12 928212 INFO/python[LogPort.cpp->log_info:38]: from python, jump init
+2018/06/27 08:57:12 928344 INFO/executor[Executor.cpp->init:28]: create Executor jump success
+2018/06/27 08:57:12 928648 INFO/action_manager[ActionManager.cpp->initExecutors:38]: find executor:sleep from:../executors_script/sleep.py
+2018/06/27 08:57:12 928906 INFO/executor[Executor.cpp->thread_run:92]: Executor:jump wait for action
+2018/06/27 08:57:12 928948 INFO/executor[Executor.cpp->thread_run:95]: action queue empty
+2018/06/27 08:57:12 929938 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'sleep' has no attribute 'init'"
+
+2018/06/27 08:57:12 929961 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:init not valid
+2018/06/27 08:57:12 929973 INFO/executor[Executor.cpp->callPythonFunction:60]: connot find func name init from Executor:sleep
+2018/06/27 08:57:12 930004 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'sleep' has no attribute 'cancel'"
+
+2018/06/27 08:57:12 930029 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:cancel not valid
+2018/06/27 08:57:12 930052 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'sleep' has no attribute 'reset_cancel'"
+
+2018/06/27 08:57:12 930060 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:reset_cancel not valid
+2018/06/27 08:57:12 930174 INFO/executor[Executor.cpp->init:28]: create Executor sleep success
+2018/06/27 08:57:12 930255 INFO/executor[Executor.cpp->thread_run:92]: Executor:sleep wait for action
+2018/06/27 08:57:12 930290 INFO/executor[Executor.cpp->thread_run:95]: action queue empty
+2018/06/27 08:57:12 930448 INFO/action_manager[ActionManager.cpp->initExecutors:38]: find executor:replan from:../executors_script/replan.py
+2018/06/27 08:57:12 931781 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'replan' has no attribute 'init'"
+
+2018/06/27 08:57:12 931811 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:init not valid
+2018/06/27 08:57:12 931821 INFO/executor[Executor.cpp->callPythonFunction:60]: connot find func name init from Executor:replan
+2018/06/27 08:57:12 931851 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'replan' has no attribute 'cancel'"
+
+2018/06/27 08:57:12 931857 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:cancel not valid
+2018/06/27 08:57:12 931878 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'replan' has no attribute 'reset_cancel'"
+
+2018/06/27 08:57:12 931884 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:reset_cancel not valid
+2018/06/27 08:57:12 931958 INFO/executor[Executor.cpp->init:28]: create Executor replan success
+2018/06/27 08:57:12 932049 INFO/executor[Executor.cpp->thread_run:92]: Executor:replan wait for action
+2018/06/27 08:57:12 932088 INFO/executor[Executor.cpp->thread_run:95]: action queue empty
+2018/06/27 08:57:12 932208 INFO/action_manager[ActionManager.cpp->initExecutors:38]: find executor:localPlanner from:../executors_script/localPlanner.py
+2018/06/27 08:57:12 933677 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'localPlanner' has no attribute 'init'"
+
+2018/06/27 08:57:12 933704 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:init not valid
+2018/06/27 08:57:12 933713 INFO/executor[Executor.cpp->callPythonFunction:60]: connot find func name init from Executor:localPlanner
+2018/06/27 08:57:12 933804 INFO/executor[Executor.cpp->init:28]: create Executor localPlanner success
+2018/06/27 08:57:12 933941 INFO/executor[Executor.cpp->thread_run:92]: Executor:localPlanner wait for action
+2018/06/27 08:57:12 933975 INFO/executor[Executor.cpp->thread_run:95]: action queue empty
+2018/06/27 08:57:12 934048 INFO/action_manager[ActionManager.cpp->initExecutors:38]: find executor:globalPlanner from:../executors_script/globalPlanner.py
+2018/06/27 08:57:12 935198 INFO/python[LogPort.cpp->log_info:38]: from python, global plan init
+2018/06/27 08:57:12 935374 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'globalPlanner' has no attribute 'cancel'"
+
+2018/06/27 08:57:12 935391 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:cancel not valid
+2018/06/27 08:57:12 935410 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:166]: <class 'AttributeError'>: "module 'globalPlanner' has no attribute 'reset_cancel'"
+
+2018/06/27 08:57:12 935424 DEBUG/python_invoke[PythonInvoke.cpp->PythonFunction:167]: function:reset_cancel not valid
+2018/06/27 08:57:12 935526 INFO/executor[Executor.cpp->init:28]: create Executor globalPlanner success
+2018/06/27 08:57:12 935592 INFO/executor[Executor.cpp->thread_run:92]: Executor:globalPlanner wait for action
+2018/06/27 08:57:12 935621 INFO/executor[Executor.cpp->thread_run:95]: action queue empty
+2018/06/27 08:57:12 935784 INFO/action_manager[ActionManager.cpp->initExecutors:48]: invalide file:../executors_script/__pycache__
+2018/06/27 08:57:12 935855 INFO/protocol_platform[TestActionManager.cpp->main:30]: post a action queue id:asijf7429 size:2
+2018/06/27 08:57:12 935868 INFO/action_manager[ActionManager.cpp->runActionQueue:77]: run action queue, size:2
+2018/06/27 08:57:12 935881 INFO/action_manager[ActionManager.cpp->sendToExecutor:181]: sendToExecutor action:asijf7429,jump,{"x":23.4,"y":33.5,"z":64.3}
+2018/06/27 08:57:12 935914 INFO/executor[Executor.cpp->postAction:70]: Executor::postAction name:jump
+2018/06/27 08:57:12 935919 INFO/action_manager[ActionManager.cpp->sendToExecutor:187]: sendToExecutor post action:jump
+2018/06/27 08:57:12 936323 INFO/python[LogPort.cpp->log_info:38]: from python, jump reset_cancel
+2018/06/27 08:57:12 936391 INFO/executor[Executor.cpp->thread_run:109]: thread_run action queue fetch, id:asijf7429 name:jump
+2018/06/27 08:57:12 936820 WARNING/python[LogPort.cpp->log_verbose:16]: pdlog only take one string param:<class 'TypeError'>: 'function takes exactly 1 argument (2 given)'
+
+2018/06/27 08:57:12 936980 INFO/python[LogPort.cpp->log_info:38]: from python, execute jump enter
+2018/06/27 08:57:12 937129 DEBUG/python[LogPort.cpp->log_debug:25]: debug message
+2018/06/27 08:57:12 937180 WARNING/python[LogPort.cpp->log_warning:51]: warning message
+2018/06/27 08:57:12 937198 ERROR/python[LogPort.cpp->log_error:64]: error message
+2018/06/27 08:57:12 937390 INFO/python[LogPort.cpp->log_info:38]: from python, execute jump id:asijf7429 params:{"x":23.4,"y":33.5,"z":64.3}
+2018/06/27 08:57:12 937612 INFO/executor[Executor.cpp->thread_run:127]: thread_run action jump execute finish,result:1
+2018/06/27 08:57:12 937661 INFO/action_manager[ActionManager.cpp->finishAction:95]: finish action:asijf7429,jump,{"x":23.4,"y":33.5,"z":64.3} result:asijf7429,1,well done, params is:{"x":23.4,"y":33.5,"z":64.3}
+2018/06/27 08:57:12 937922 DEBUG/action_manager[ActionManager.cpp->finishAction:121]: action queue left:1 trigger next
+2018/06/27 08:57:12 937968 INFO/action_manager[ActionManager.cpp->sendToExecutor:181]: sendToExecutor action:asijf7429,run,
+2018/06/27 08:57:12 938150 INFO/executor[Executor.cpp->postAction:70]: Executor::postAction name:run
+2018/06/27 08:57:12 938367 INFO/executor[Executor.cpp->thread_run:109]: thread_run action queue fetch, id:asijf7429 name:run
+2018/06/27 08:57:12 938420 INFO/executor[Executor.cpp->thread_run:127]: thread_run action run execute finish,result:0
+2018/06/27 08:57:12 938440 INFO/action_manager[ActionManager.cpp->finishAction:95]: finish action:asijf7429,run, result:asijf7429,0,just fail
+2018/06/27 08:57:12 938448 DEBUG/action_manager[ActionManager.cpp->finishAction:110]: this is the last action of the queue, remove all queue
+2018/06/27 08:57:12 938462 INFO/executor[Executor.cpp->thread_run:92]: Executor:run wait for action
+2018/06/27 08:57:12 938467 INFO/executor[Executor.cpp->thread_run:95]: action queue empty
+2018/06/27 08:57:12 938874 INFO/action_manager[ActionManager.cpp->sendToExecutor:187]: sendToExecutor post action:run
+2018/06/27 08:57:12 939066 INFO/executor[Executor.cpp->thread_run:92]: Executor:jump wait for action
+2018/06/27 08:57:12 939227 INFO/executor[Executor.cpp->thread_run:95]: action queue empty
+2018/06/27 08:57:14 936079 DEBUG/executor[Executor.cpp->~Executor:38]: Executor::~Executor
+2018/06/27 08:57:14 936238 INFO/executor[Executor.cpp->thread_run:99]: quit Executor thread:run
+2018/06/27 08:57:14 936462 DEBUG/executor[Executor.cpp->~Executor:43]: Executor::~Executor thread exited
+2018/06/27 08:57:14 936647 DEBUG/executor[Executor.cpp->~Executor:38]: Executor::~Executor
+2018/06/27 08:57:14 936760 INFO/executor[Executor.cpp->thread_run:99]: quit Executor thread:robot
+2018/06/27 08:57:14 936922 DEBUG/executor[Executor.cpp->~Executor:43]: Executor::~Executor thread exited
+2018/06/27 08:57:14 936992 DEBUG/executor[Executor.cpp->~Executor:38]: Executor::~Executor
+2018/06/27 08:57:14 937105 INFO/executor[Executor.cpp->thread_run:99]: quit Executor thread:jump
+2018/06/27 08:57:14 937261 DEBUG/executor[Executor.cpp->~Executor:43]: Executor::~Executor thread exited
+2018/06/27 08:57:14 937299 DEBUG/executor[Executor.cpp->~Executor:38]: Executor::~Executor
+2018/06/27 08:57:14 937381 INFO/executor[Executor.cpp->thread_run:99]: quit Executor thread:sleep
+2018/06/27 08:57:14 937540 DEBUG/executor[Executor.cpp->~Executor:43]: Executor::~Executor thread exited
+2018/06/27 08:57:14 937578 DEBUG/executor[Executor.cpp->~Executor:38]: Executor::~Executor
+2018/06/27 08:57:14 937659 INFO/executor[Executor.cpp->thread_run:99]: quit Executor thread:replan
+2018/06/27 08:57:14 937795 DEBUG/executor[Executor.cpp->~Executor:43]: Executor::~Executor thread exited
+2018/06/27 08:57:14 937830 DEBUG/executor[Executor.cpp->~Executor:38]: Executor::~Executor
+2018/06/27 08:57:14 937906 INFO/executor[Executor.cpp->thread_run:99]: quit Executor 
+thread:localPlanner
+2018/06/27 08:57:14 938102 DEBUG/executor[Executor.cpp->~Executor:43]: Executor::~Executor thread exited
+2018/06/27 08:57:14 938173 DEBUG/executor[Executor.cpp->~Executor:38]: Executor::~Executor
+2018/06/27 08:57:14 938252 INFO/executor[Executor.cpp->thread_run:99]: quit Executor thread:globalPlanner
+2018/06/27 08:57:14 938432 DEBUG/executor[Executor.cpp->~Executor:43]: Executor::~Executor 
+thread exited
+g3log g3FileSink shutdown at: 08:57:14 966980
