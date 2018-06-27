@@ -1,0 +1,55 @@
+<html>
+<head>vue_demo</head>
+
+
+<body>
+<ul id="example-2">
+  <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+  <li v-for="n in evenNumbers">{{ n }}</li>
+</ul>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+
+<script language="javascript">
+  var example2 = new Vue({
+    el: '#example-2',
+    data: {
+      parentMessage: 'Parent',
+      items: [
+        { message: 'Foo' },
+        { message: 'Bar' }
+      ],
+      numbers: [ 1, 2, 3, 4, 5 ]
+    },
+    computed: {
+        evenNumbers: function () {
+          return this.numbers.filter(function (number) {
+            return number % 2 === 0
+          })
+        }
+      }
+  })
+  console.debug('log test')
+  namespace = '/log';
+  var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+  // Event handler for new connections.
+  // The callback function is invoked when a connection with the
+  // server is established.
+  socket.on('connect', function() {
+      socket.emit('command', {data: 'I\'m connected!'});
+  });
+  // Event handler for server sent data.
+  // The callback function is invoked whenever the server emits data
+  // to the client. The data is then displayed in the "Received"
+  // section of the page.
+  socket.on('my_response', function(msg) {
+    console.debug('my_response:' + msg.data)
+      //$('#log').append('<br>' + $('<div/>').text('Received #' + msg.count + ': ' + msg.data).html());
+  });
+</script>
+</body>
+
+
