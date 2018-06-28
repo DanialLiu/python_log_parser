@@ -1,54 +1,132 @@
 <html>
 <head>vue_demo</head>
-
-
+<style type="text/css">
+*{
+  margin:0 auto;
+  font-family: Consolas;
+}
+#fixedbar {
+  width:100%;background-color:#3c3f41; position:fixed; top:0;_position:relative; z-index:100; _top:expression(offsetParent.scrollTop+0);
+  height: 30px;
+  color: white;
+}
+.barcontent{
+  margin-left: 20px;
+  margin-top: 2px;
+}
+#document {
+  background-color: #2b2b2b
+}
+#level_select {
+  background-color: #2b2b2b;
+  color: white;
+}
+#tag_input {
+  margin-left: 20px;
+  margin-top: 2px;
+  width: 120px;
+}
+#search_input {
+  margin-left: 20px;
+  margin-top: 2px;
+  width: 300px;
+}
+#loglist {
+  color: white;
+}
+.log_top_space {
+  height: 30px;
+}
+</style> 
 <body>
-<ul id="example-2">
-  <li v-for="(item, index) in items">
-    {{ parentMessage }} - {{ index }} - {{ item.message }}
-  </li>
-  <li v-for="n in evenNumbers">{{ n }}</li>
-</ul>
+  <div id="document">
+    <div id="fixedbar">
+      <div class="barcontent">
+        <select @input="onLevelChange" id="level_select" v-model="level">
+          <option value="0">Verbose</option>
+          <option value="100">Debug</option>
+          <option value="200">Info</option>
+          <option value="300">Warning</option>
+          <option value="400">Error</option>
+          <option value="500">Fatal</option>
+        </select>
+
+        <input v-model="tag" id="tag_input" placeholder="tag" v-on:keyup.enter="onFilter">
+        <input v-model="search" id="search_input" placeholder="search" v-on:keyup.enter="onFilter">
+        <button v-on:click="onFilter">filter</button>
+        <input type="checkbox" id="checkbox" v-model="auto_scoll">scroll</input>
+      </div>
+    </div>
+    <div class="log_top_space"> </div>
+    <ul id="loglist">
+      <li v-for="(item, index) in logs" v-bind:style="lineColor(item.level)" v-bind:title="item.file">
+        <pre>{{ item.date }} {{ item.level }}[{{ item.tag }}]: {{ item.text }}</pre>
+      </li>
+    </ul>
+  </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
 
 <script language="javascript">
-  var example2 = new Vue({
-    el: '#example-2',
-    data: {
-      parentMessage: 'Parent',
-      items: [
-        { message: 'Foo' },
-        { message: 'Bar' }
-      ],
-      numbers: [ 1, 2, 3, 4, 5 ]
-    },
-    computed: {
-        evenNumbers: function () {
-          return this.numbers.filter(function (number) {
-            return number % 2 === 0
-          })
-        }
-      }
-  })
-  console.debug('log test')
+  console.info('log test')
   namespace = '/log';
   var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
-  // Event handler for new connections.
-  // The callback function is invoked when a connection with the
-  // server is established.
   socket.on('connect', function() {
       socket.emit('command', {data: 'I\'m connected!'});
+  });  
+  
+
+  var vm = new Vue({
+    el: '#document',
+    data: {
+      logs:[],
+      tag:"",
+      search:"",
+      level:0,
+      auto_scoll: true,
+    },
+
+    methods: {
+      lineColor: function (level) {
+        var color_map = {INFO:'#48BB31', DEBUG: '#0070BB', VERBOSE: '#BBBBBB', WARNING: '#BBBB23', ERROR: '#FF0006', FATAL: '#8F0005'}
+        return {
+          color: color_map[level]
+        }
+      },
+      fetchLog: function(level, tag, search){
+        vm.logs = {}
+        socket.emit('log_fetch', {level: level, tag: tag, search: search});
+      },
+      onLevelChange: function(ele) {
+        console.info('onLevelChange:' + ele.target.value)
+        this.fetchLog(ele.target.value, vm.tag, vm.search)
+      },
+      onFilter: function(ele){
+        console.info('on filter tag:' + vm.tag + ' search:' + vm.search)
+        this.fetchLog(vm.level, vm.tag, vm.search);
+      }
+    },
+    watch: {
+      'logs': function (val, oldVal) {
+        console.info('logs watch')
+        if (vm.auto_scoll){
+          this.$nextTick(function () {
+            window.scrollTo(0, document.body.scrollHeight);
+          })
+        }
+        
+      },
+    },
+  })
+  socket.on('log_fetch', function(msg) {
+    console.info('log_fetch, vm.logs:' + vm.logs.length + " msg.data:" + msg.data.length)
+    vm.logs = vm.logs.concat(msg.data)
+
+    
   });
-  // Event handler for server sent data.
-  // The callback function is invoked whenever the server emits data
-  // to the client. The data is then displayed in the "Received"
-  // section of the page.
-  socket.on('my_response', function(msg) {
-    console.debug('my_response:' + msg.data)
-      //$('#log').append('<br>' + $('<div/>').text('Received #' + msg.count + ': ' + msg.data).html());
-  });
+  socket.emit('log_fetch', {});
+  
 </script>
 </body>
 
